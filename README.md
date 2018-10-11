@@ -1,5 +1,6 @@
 # Project-2nd-Unit
 Programming project 
+
 * automatic courtains 
 this is a school project that has the purpose of make easier one of the most 
 annonying activitis in the daily life, and basicli consist in three divices a
@@ -12,9 +13,9 @@ all the documentation will be in GitHub [Project-2nd-Unit](https://github.com/fe
 
 ***** how instal the software step by step
 for execute the code you must instal the compiler of MPLAB that is free
-you have to go to the oficial page or pic [here] (https://www.microchip.com/mplab/mplab-x-ide)
+you have to go to the oficial page or pic [here](https://www.microchip.com/mplab/mplab-x-ide)
 you pic in downloads then pic in MPLAB IDE.
-then you must instal PICKID 3 this is dificul to search and we put [here] (https://www.microchip.com/Developmenttools/ProductDetails/PG164130) 
+then you must instal PICKID 3 this is dificul to search and we put [here](https://www.microchip.com/Developmenttools/ProductDetails/PG164130) 
 these are all the softwares that you have to download.
 
 ***** how use MPLAB
