@@ -30,4 +30,4 @@ copy and paste the code in the page and clic build(has the icon of a hamer).
 
 ##### how use PICKID 3
 you have to use the PICKID 3 to tranfer the code into the pic, you only have to 
-copy te code there.
+follow the steps that the page shows for use the pickit 3 [page](https://pwmlabs.wordpress.com/2017/04/05/grabado-de-pics-con-pickit3-y-mplab-x/).
