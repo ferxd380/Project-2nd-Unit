@@ -1,0 +1,244 @@
+MPASM 5.77                NEWASMTEMPLATE.ASM   10-22-2018  18:43:09         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;ETIQUETAS         DIRECTIVAS Y NEMONICOS          VARIABLES        COMENTARIOS
+                      00002 ;-------------------------OBLIGATORIO PARA EL PIC ------------------------------
+2007   3FF1           00003                    __CONFIG _CP_OFF& _WDT_OFF& _PWRTE_ON&_XT_OSC;para el grabador
+                      00004                     LIST        p=16F84A;           designar el modelo del pic
+                      00005                     INCLUDE<P16F84A.INC>;           ;           definir a que pic manupulare
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Nov 22 2017
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2017 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00209         LIST
+                      00006                     RADIX       HEX
+                      00007 ;------------------------Declaracion de registros-------------------------------
+  00000006            00008 PB                  EQU 0X06
+  00000005            00009 PA                  EQU 0X05
+  00000085            00010 TRISA               EQU 0X85
+  00000086            00011 TRISB               EQU 0X86
+  00000003            00012 ESTADO              EQU 0X03
+  0000000C            00013 RET                 EQU 0x0c
+  0000000D            00014 RET2                EQU 0x0d
+  0000000E            00015 RET3                EQU 0x0e                                
+                      00016 ;---------------------------Cabecera de inicio------- --------------------------
+                      00017                     ORG 0X00
+0000   2???           00018                     GOTO INICIO
+                      00019                     ORG 0X06
+                      00020 ;---------------------------Cuerpo del programa---------------------------------
+0006   1683           00021 INICIO            bsf     ESTADO,5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0186           00022                   clrf    TRISB
+0008   301F           00023                   movlw   b'11111'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0085           00024                   movwf   TRISA 
+000A   1283           00025                   bcf     ESTADO,5
+                      00026                   
+000B   0186           00027 REINICIO          clrf    PB
+000C   2???           00028                   call    LEER
+                      00029                   
+000D   0186           00030 REINICIO2         clrf      PB
+000E   2???           00031                   call      LEER2
+                      00032                   
+000F                  00033 APAGADO
+000F   1905           00034                   btfsc     PA,2
+0010   2???           00035                   goto      ENCENDER
+0011   3001           00036                   movlw     b'0000001'
+0012   0086           00037                   movwf     PB
+0013   2???           00038                   call      RETARDO
+0014   0186           00039                   clrf      PB
+0015   2???           00040                   goto      LEER
+                      00041                   
+MPASM 5.77                NEWASMTEMPLATE.ASM   10-22-2018  18:43:09         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0016                  00042 ENCENDER        
+0016   3002           00043                   movlw     b'0000010'
+0017   0086           00044                   movwf     PB
+0018   2???           00045                   call      RETARDO
+0019   0186           00046                   clrf      PB
+001A   1805           00047                   btfsc     PA,0
+001B   2???           00048                   goto      LEER2
+                      00049 ;-------------------------------------------------------------------------------
+001C                  00050 RETARDO
+001C   3001           00051                     movlw   0x01
+001D   008C           00052                     movwf   RET
+001E                  00053 LAZO2
+001E   3003           00054                     movlw   0x03
+001F   008D           00055                     movwf   RET2
+0020                  00056 LAZO1
+0020   3003           00057                     movlw   0x03
+0021   008E           00058                     movwf   RET3
+0022                  00059 LAZO
+0022   0B8E           00060                     decfsz  RET3,1
+0023   2???           00061                     goto    LAZO
+0024   0B8D           00062                     decfsz  RET2,1
+0025   2???           00063                     goto    LAZO1
+0026   0B8C           00064                     decfsz  RET,1
+0027   2???           00065                     goto    LAZO2
+0028   0008           00066                     RETURN
+0029                  00067 LEER
+0029   0186           00068                     clrf    PB
+002A   1805           00069                     btfsc   PA,0
+002B   2???           00070                     goto    ENCENDER
+002C   2???           00071                     goto    LEER
+002D   0008           00072                     RETURN                  
+002E                  00073 LEER2               
+002E   0186           00074                     clrf    PB
+002F   1805           00075                     btfsc   PA,0
+0030   2???           00076                     goto    LEER2
+0031   2???           00077                     goto    APAGADO
+0032   0008           00078                     RETURN
+3FF1                  00079                     END 
+MPASM 5.77                NEWASMTEMPLATE.ASM   10-22-2018  18:43:09         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+APAGADO                           0000000F
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+ENCENDER                          00000016
+ESTADO                            00000003
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INICIO                            00000006
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+LAZO                              00000022
+LAZO1                             00000020
+LAZO2                             0000001E
+LEER                              00000029
+LEER2                             0000002E
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PA                                00000005
+PB                                00000006
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+MPASM 5.77                NEWASMTEMPLATE.ASM   10-22-2018  18:43:09         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+REINICIO                          0000000B
+REINICIO2                         0000000D
+RET                               0000000C
+RET2                              0000000D
+RET3                              0000000E
+RETARDO                           0000001C
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+MPASM 5.77                NEWASMTEMPLATE.ASM   10-22-2018  18:43:09         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+
