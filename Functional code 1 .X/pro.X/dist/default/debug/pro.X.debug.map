@@ -1,0 +1,56 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon Oct 22 18:43:12 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   .org_1       code   0x000006    program   0x00005a
+.config_2007_BUILD/DEFAULT/DEBUG/NEWASMTEMPLA       code   0x002007    program   0x000002
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000006    0x000032      
+                            0x002007    0x002007      
+            49 out of 1094 program addresses used, program memory utilization is 4%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  APAGADO   0x00000f    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                 ENCENDER   0x000016    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                   INICIO   0x000006    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                     LAZO   0x000022    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LAZO1   0x000020    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LAZO2   0x00001e    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                     LEER   0x000029    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LEER2   0x00002e    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                 REINICIO   0x00000b    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                REINICIO2   0x00000d    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                  RETARDO   0x00001c    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   INICIO   0x000006    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                 REINICIO   0x00000b    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                REINICIO2   0x00000d    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                  APAGADO   0x00000f    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                 ENCENDER   0x000016    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                  RETARDO   0x00001c    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LAZO2   0x00001e    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LAZO1   0x000020    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                     LAZO   0x000022    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                     LEER   0x000029    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+                    LEER2   0x00002e    program     static C:\Users\bolicarpos\MPLABXProjects\pro.X\newAsmTemplate.asm
+
+
